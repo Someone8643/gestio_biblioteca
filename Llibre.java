@@ -25,6 +25,21 @@ public String getAutor() {
     return autor;
 }
 
+// Métodos
 
+public void prestar();
+
+if (prestat == false) {
+    prestat = true;
+} else {
+    System.out.println("El llibre ja està prestat.");
+}
+}
+public void retornar() {
+    if (prestat == true) {
+        prestat = false;
+    } else {
+        System.out.println("El llibre ja està retornat.");
+    }
 
 }
