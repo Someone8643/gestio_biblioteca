@@ -42,4 +42,15 @@ public void retornar() {
         System.out.println("El llibre ja està retornat.");
     }
 
+    ToString() {
+
+        if(prestat == false){
+            prestat = "No prestat";
+        } else {
+            prestat = "Prestat";
+        }
+        
+        return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + prestat;
+    }
+
 }
