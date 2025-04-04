@@ -11,13 +11,9 @@ public class Biblioteca  {
 
 	}
 
-
 	public Biblioteca (ArrayList<Llibre> llibres) {
 		this.llibres = llibres;
 	}
-
-
-
 
 	// Getters i Setters
 	public ArrayList<Llibre> getLlibres() {
