@@ -24,10 +24,10 @@ public class Prestec {
 
     // // Mètodes
 
-    // Mètode per retornar el llibre del préstec
+    // Mètode per retornar el llibre del préstec (amb posar una data de retorn, el llibre està retornat)
     public void retornarLlibre() {
 
-
+        dataRetorn = LocalDate.now();
     }
 
     // // Getters i Setters
