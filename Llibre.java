@@ -15,9 +15,9 @@ public Llibre(String titol, String autor, boolean prestat){
     this.prestat = false;
 }
 
-// Métodos
 
-getters y setters
+// getters y setters
+
 public String getTitol() {
     return titol;
 }
