@@ -45,9 +45,9 @@ public void retornar() {
     ToString() {
 
         if(prestat == false){
-            prestat = "No prestat";
+            prestat = "El llibre no està prestat";
         } else {
-            prestat = "Prestat";
+            prestat = "El llibre ja està prestat";
         }
         
         return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + prestat;
