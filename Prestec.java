@@ -36,11 +36,31 @@ public class Prestec {
         return usuari;
     }
 
+    public void setUsuari(Usuari usuari) {
+        this.usuari = usuari;
+    }
+
     public Llibre getLlibre() {
         return llibre;
     }
 
+    public void setLlibre(Llibre llibre) {
+        this.llibre = llibre;
+    }
+
     public LocalDate getDataRetorn() {
         return dataRetorn;
+    }
+
+    public void setDataRetorn(LocalDate dataRetorn) {
+        this.dataRetorn = dataRetorn;
+    }
+
+    public LocalDate getDataPrestec() {
+        return dataPrestec;
+    }
+
+    public void setDataPrestec(LocalDate dataPrestec) {
+        this.dataPrestec = dataPrestec;
     }
 }
