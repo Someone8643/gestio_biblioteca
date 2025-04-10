@@ -24,6 +24,9 @@ public String getTitol() {
 public String getAutor() {
     return autor;
 }
+public boolean isPrestat() {
+    return prestat;
+}
 
 // Métodos
 
