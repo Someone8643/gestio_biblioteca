@@ -5,6 +5,7 @@ public class GestorBiblioteca {
 	// Propietats
 	private ArrayList<Prestec> prestecs = new ArrayList();
 	private ArrayList<Llibre> biblioteca;
+	
 	// Constructors
 	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca) {
 		this.prestecs = prestecs;
@@ -23,7 +24,7 @@ public class GestorBiblioteca {
 	public ArrayList<Llibre> getBiblioteca() {
 		return biblioteca;
 	}
-
+	
 	// Mètodes
 	/**
 	 * Funció que genera un prèstec i s'ho dona a l'usuari.
