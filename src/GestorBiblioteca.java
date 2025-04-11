@@ -4,11 +4,11 @@ import java.util.ArrayList;
 public class GestorBiblioteca {
 	// Propietats
 	private ArrayList<Prestec> prestecs = new ArrayList();
-
+	private ArrayList<Llibre> biblioteca;
 	// Constructors
-	public GestorBiblioteca(ArrayList<Prestec> prestecs) {
-		super();
+	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca) {
 		this.prestecs = prestecs;
+		this.biblioteca = biblioteca.getLlibres();
 	}
 
 	// Getters i Setters
@@ -19,15 +19,19 @@ public class GestorBiblioteca {
 	public void setPrestecs(ArrayList<Prestec> prestecs) {
 		this.prestecs = prestecs;
 	}
+	
+	public ArrayList<Llibre> getBiblioteca() {
+		return biblioteca;
+	}
 
-	// Metodes
+	// Mètodes
 	/**
 	 * Funció que genera un prèstec i s'ho dona a l'usuari.
 	 * @param usuari
 	 * @param llibre
 	 */
 	public void prestarLlibre(Usuari usuari, Llibre llibre) {
-		if (!llibre.esPrestat()) {
+		if (!(llibre.esPrestat())) {
 			llibre.prestar();
 			Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
 			prestecs.add(prestec);
@@ -44,14 +48,14 @@ public class GestorBiblioteca {
 	 * @param biblioteca
 	 * @return
 	 */
-	public int donarEstoc(Biblioteca biblioteca) {
+	public int donarEstoc() {
 		int estoc = 0;
-		for (Llibre llibre : biblioteca.getLlibres()) {
+		for (Llibre llibre : biblioteca) {
 			if (!(llibre.isPrestat())) {
 				estoc++;
 			}
 		}
-
+		return estoc;
 	}
 
 }
