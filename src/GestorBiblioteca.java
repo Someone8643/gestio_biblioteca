@@ -5,6 +5,7 @@ public class GestorBiblioteca {
 	// Propietats
 	private ArrayList<Prestec> prestecs = new ArrayList();
 	private ArrayList<Llibre> biblioteca;
+	
 	// Constructors
 	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca) {
 		this.prestecs = prestecs;
