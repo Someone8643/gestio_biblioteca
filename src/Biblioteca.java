@@ -5,7 +5,6 @@ public class Biblioteca  {
 	// Propietats
 	private ArrayList<Llibre> llibres = new ArrayList();
 
-
 	// Constructors
 	public Biblioteca() {
 
@@ -69,9 +68,19 @@ public class Biblioteca  {
 
 	}
 
-	
-	public void llistarLlibresAutor(Llibre autor) {
-		
+	/**
+	 * Funció que llista els llibres d'un autor.
+	 * @param autor
+	 */
+	public void llistarLlibresAutor(String autor) {
+		int numeracio = 1;
+		for (Llibre llibre : llibres) {
+			if (llibre.getAutor().equalsIgnoreCase(autor)) {
+				System.out.println("Llibres de l'autor " + autor);
+				System.out.println(numeracio + " | " + llibre.getTitol());
+				numeracio++;
+			}
+		}
 
 	}
 	
