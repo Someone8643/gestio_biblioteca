@@ -21,6 +21,11 @@ public class GestorBiblioteca {
 	}
 
 	// Metodes
+	/**
+	 * Funció que genera un prèstec i s'ho dona a l'usuari.
+	 * @param usuari
+	 * @param llibre
+	 */
 	public void prestarLlibre(Usuari usuari, Llibre llibre) {
 		if (!llibre.esPrestat()) {
 			llibre.prestar();
@@ -34,10 +39,17 @@ public class GestorBiblioteca {
 
 	}
 	
+	/**
+	 * Funció que calcula l'estoc actual.
+	 * @param biblioteca
+	 * @return
+	 */
 	public int donarEstoc(Biblioteca biblioteca) {
 		int estoc = 0;
 		for (Llibre llibre : biblioteca.getLlibres()) {
-			if (llibre.)
+			if (!(llibre.isPrestat())) {
+				estoc++;
+			}
 		}
 
 	}
