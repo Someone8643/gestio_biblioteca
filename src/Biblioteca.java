@@ -30,7 +30,7 @@ public class Biblioteca  {
 	}
 	
 	/**
-	 * Funció que busca un llibre pel seu títol
+	 * Funció que busca un llibre pel seu títol.
 	 * @param titol
 	 * @return
 	 */
@@ -45,7 +45,7 @@ public class Biblioteca  {
 	}
 
 	/**
-	 * Funció que busca un llibre pel seu títol
+	 * Funció que busca un llibre pel seu títol.
 	 * @param titol
 	 * @return
 	 */
@@ -60,7 +60,7 @@ public class Biblioteca  {
 	}
 
 	/**
-	 * Funció que llista els llibres amb numeració
+	 * Funció que llista els llibres amb numeració.
 	 */
 	public void llistarLlibres() {
 		for (int i=0;i<this.llibres.size();i++) {
@@ -76,7 +76,7 @@ public class Biblioteca  {
 	}
 	
 	/**
-	 * Funció que retorna el nombre de lletres que concorden amb la comparació
+	 * Funció que retorna el nombre de lletres que concorden amb la comparació.
 	 * @param llibre
 	 * @param comparacio
 	 * @return
