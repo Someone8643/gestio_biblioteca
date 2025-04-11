@@ -24,7 +24,7 @@ public class GestorBiblioteca {
 	public ArrayList<Llibre> getBiblioteca() {
 		return biblioteca;
 	}
-
+	
 	// Mètodes
 	/**
 	 * Funció que genera un prèstec i s'ho dona a l'usuari.
