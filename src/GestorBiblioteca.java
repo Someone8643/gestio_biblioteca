@@ -4,12 +4,14 @@ import java.util.ArrayList;
 public class GestorBiblioteca {
 	// Propietats
 	private ArrayList<Prestec> prestecs = new ArrayList();
-	private ArrayList<Llibre> biblioteca;
+	private Biblioteca biblioteca;
+	private ArrayList<Usuari> usuaris;
 	
 	// Constructors
-	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca) {
+	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca, ArrayList<Usuari> usuaris) {
 		this.prestecs = prestecs;
-		this.biblioteca = biblioteca.getLlibres();
+		this.biblioteca = biblioteca;
+		this.usuaris = usuaris;
 	}
 
 	// Getters i Setters
@@ -17,12 +19,12 @@ public class GestorBiblioteca {
 		return prestecs;
 	}
 
-	public void setPrestecs(ArrayList<Prestec> prestecs) {
-		this.prestecs = prestecs;
-	}
-	
-	public ArrayList<Llibre> getBiblioteca() {
+	public Biblioteca getBiblioteca() {
 		return biblioteca;
+	}
+
+	public ArrayList<Usuari> getUsuaris() {
+		return usuaris;
 	}
 	
 	// Mètodes
@@ -43,7 +45,7 @@ public class GestorBiblioteca {
 		}
 
 	}
-	
+
 	/**
 	 * Funció que calcula l'estoc actual.
 	 * @param biblioteca
@@ -59,6 +61,77 @@ public class GestorBiblioteca {
 		return estoc;
 	}
 
+	// Mètodes d'interacció amb biblioteques
+	/**
+	 * Funció que permet eliminar un llibre pel seu nom.
+	 * @param nom
+	 */
+	public void eliminarLlibreNom(String nom) {
+		for (Llibre llibre : biblioteca.getLlibres()) {
+			if (llibre.getTitol().equalsIgnoreCase(nom)) {
+				biblioteca.getLlibres().remove(llibre);
+			}
+		}
+	}
+	
+	/**
+	 * Funció que permet la creació d'un nou llibre.
+	 * @param titol
+	 * @param autor
+	 * @param prestat
+	 */
+	public void crearLlibre(String titol, String autor, boolean prestat) {
+		this.biblioteca.add(new Llibre(titol, autor, prestat));
+		System.out.println("S'ha afegit un nou llibre.");
+	}
+	
+	/**
+	 * Funció que afegeix un llibre existent.
+	 * @param llibre
+	 */
+	public void afegirLlibre(Llibre llibre) {
+		this.biblioteca.getLlibres().add(llibre);
+	}
+	
+	/**
+	 * Funció que mostra els llibres de la biblioteca.
+	 */
+	public void mostrarBiblioteca() {
+		this.biblioteca.llistarLlibres();
+	}
+	
+	/**
+	 * Funció que busca un llibre pel seu títol.
+	 * @param titol
+	 * @return
+	 */
+	public void buscarLlibreAccents(String titol) {
+		this.biblioteca.buscarLlibreAccents(titol);
+	}
+	
+	// Mètodes d'interacció amb usuaris
+	/**
+	 * Funció que permet eliminar un usuari pel seu nom.
+	 * @param nom
+	 */
+	public void eliminarUsuariNom(String nom) {
+		for (Usuari usuari : usuaris) {
+			if (usuari.getNom().equalsIgnoreCase(nom)) {
+				usuaris.remove(usuari);
+			}
+		}
+	}
+	
+	/**
+	 * Funció que permet la creació d'un nou usuari.
+	 * @param nom
+	 * @param llibresPrestats
+	 */
+	public void crearUsuari(String nom, ArrayList<Llibre> llibresPrestats) {
+		this.usuaris.add(new Usuari(nom, llibresPrestats));
+		System.out.println("S'ha afegit un nou usuari.");
+	}
+	
 }
 
 
