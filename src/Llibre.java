@@ -1,11 +1,13 @@
 public class Llibre {
 
-// Propietats
+// Propieades
+
 private String titol;
 private String autor;
 private boolean prestat;
 
-// Constructors
+// Constructores
+
 public Llibre(String titol, String autor, boolean prestat){
 
     this.titol = titol;
@@ -14,15 +16,20 @@ public Llibre(String titol, String autor, boolean prestat){
 }
 
 
-// Getters i Setters
+// getters y setters
+
 public String getTitol() {
     return titol;
 }
 public String getAutor() {
     return autor;
 }
+public boolean isPrestat() {
+    return prestat;
+}
 
-// Mètodes
+// Métodos
+
 public void prestar();
 
 if (prestat == false) {
@@ -36,6 +43,17 @@ public void retornar() {
         prestat = false;
     } else {
         System.out.println("El llibre ja està retornat.");
+    }
+
+    ToString() {
+
+        if(prestat == false){
+            prestat = "El llibre no està prestat";
+        } else {
+            prestat = "El llibre ja està prestat";
+        }
+        
+        return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + prestat;
     }
 
 }
