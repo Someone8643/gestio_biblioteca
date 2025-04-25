@@ -44,17 +44,18 @@ public class Llibre {
         } else {
             System.out.println("El llibre ja està retornat.");
         }
+    }
     
-        public String toString() {
-    
-            String llibrePrestar="";
-            if(!prestat){
-                llibrePrestar = "El llibre no està prestat";
-            } else {
-                llibrePrestar = "El llibre està prestat";
-            }
-            
-            return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + llibrePrestar;
+    public String toString() {
+
+        String llibrePrestar="";
+        if(!prestat){
+            llibrePrestar = "El llibre no està prestat";
+        } else {
+            llibrePrestar = "El llibre està prestat";
         }
+
+        return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + llibrePrestar;
+    }
     
     }
