@@ -1,23 +1,25 @@
+package src;
+
 public class Llibre {
 
     // Propieades
-    
+
     private String titol;
     private String autor;
     private boolean prestat;
-    
+
     // Constructores
-    
+
     public Llibre(String titol, String autor, boolean prestat){
-    
+
         this.titol = titol;
         this.autor = autor;
         this.prestat = false;
     }
-    
-    
+
+
     // getters y setters
-    
+
     public String getTitol() {
         return titol;
     }
@@ -27,18 +29,18 @@ public class Llibre {
     public boolean isPrestat() {
         return prestat;
     }
-    
+
     // Métodos
-    
+
     public void prestar(){
 
         this.prestat = true;
-    
-    if (!prestat) {
-        System.out.println("El llibre no s'ha prestat.");
-    } else {
-        System.out.println("El llibre ja està prestat.");
-    }
+
+        if (!prestat) {
+            System.out.println("El llibre no s'ha prestat.");
+        } else {
+            System.out.println("El llibre ja està prestat.");
+        }
     }
     public void retornar() {
         if (prestat == true) {
@@ -47,7 +49,7 @@ public class Llibre {
             System.out.println("El llibre ja està retornat.");
         }
     }
-    
+
     public String toString() {
 
         String llibrePrestar="";
@@ -59,5 +61,5 @@ public class Llibre {
 
         return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + llibrePrestar;
     }
-    
-    }
+
+}
