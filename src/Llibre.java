@@ -31,6 +31,8 @@ public class Llibre {
     // Métodos
     
     public void prestar(){
+
+        this.prestat = true;
     
     if (!prestat) {
         System.out.println("El llibre no s'ha prestat.");
