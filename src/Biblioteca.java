@@ -42,6 +42,26 @@ public class Biblioteca  {
 		System.out.println("No s'ha trobat cap llibre");
 		return null;
 	}
+	
+	/**
+	 * Funció que retorna el llibre que tingui major nombre de lletres en concordança amb el títol.
+	 * @return
+	 */
+	public Llibre buscarLlibreSimilitud(String titol) {
+		int semblançaActual = Integer.MIN_VALUE;
+		Llibre llibreActual = null;
+		if (this.llibres.size() == 0) {
+			return null;
+		}
+		for (Llibre llibre : llibres) {
+			int similitud = retornarSemblanca(llibre, titol);
+			if (similitud > semblançaActual) {
+					semblançaActual = similitud;
+					llibreActual = llibre;
+			}
+		}
+		return llibreActual;
+	}
 
 	/**
 	 * Funció que busca un llibre pel seu títol.
@@ -51,6 +71,7 @@ public class Biblioteca  {
 	public Llibre buscarLlibreAccents(String titol) {
 		for (Llibre llibre : llibres) {
 			if (llibre.getTitol().equalsIgnoreCase(titol)) {
+				System.out.println("S'ha trobat un llibre.");
 				return llibre;
 			}
 		}
@@ -91,9 +112,11 @@ public class Biblioteca  {
 	 * @return
 	 */
 	private int retornarSemblanca(Llibre llibre, String comparacio) {
+		// Necesitem el que tingui menor longitud entre la comparació i el títol.
+		int longitud = Math.min(llibre.getTitol().length(), comparacio.length());;
 		int similitud = 0;
-		for(int i=0;i< comparacio.length();i++) {
-			if (llibre.getAutor().charAt(i) == comparacio.charAt(i)) {
+		for(int i=0;i< longitud;i++) {
+			if (llibre.getTitol().charAt(i) == comparacio.charAt(i)) {
 				similitud++;
 			} else {
 				return similitud;

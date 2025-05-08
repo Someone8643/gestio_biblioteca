@@ -8,6 +8,10 @@ public class GestorBiblioteca {
 	private ArrayList<Usuari> usuaris;
 	
 	// Constructors
+	public GestorBiblioteca(Biblioteca biblioteca) {
+		this.biblioteca = biblioteca;
+	}
+	
 	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca, ArrayList<Usuari> usuaris) {
 		this.prestecs = prestecs;
 		this.biblioteca = biblioteca;
@@ -34,7 +38,7 @@ public class GestorBiblioteca {
 	 * @param llibre
 	 */
 	public void prestarLlibre(Usuari usuari, Llibre llibre) {
-		if (!(llibre.esPrestat())) {
+		if (!(llibre.isPrestat())) {
 			llibre.prestar();
 			Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
 			prestecs.add(prestec);
@@ -53,7 +57,7 @@ public class GestorBiblioteca {
 	 */
 	public int donarEstoc() {
 		int estoc = 0;
-		for (Llibre llibre : biblioteca) {
+		for (Llibre llibre : biblioteca.getLlibres()) {
 			if (!(llibre.isPrestat())) {
 				estoc++;
 			}
@@ -81,7 +85,7 @@ public class GestorBiblioteca {
 	 * @param prestat
 	 */
 	public void crearLlibre(String titol, String autor, boolean prestat) {
-		this.biblioteca.add(new Llibre(titol, autor, prestat));
+		this.biblioteca.getLlibres().add(new Llibre(titol, autor, prestat));
 		System.out.println("S'ha afegit un nou llibre.");
 	}
 	
@@ -105,8 +109,17 @@ public class GestorBiblioteca {
 	 * @param titol
 	 * @return
 	 */
-	public void buscarLlibreAccents(String titol) {
-		this.biblioteca.buscarLlibreAccents(titol);
+	public Llibre buscarLlibreAccents(String titol) {
+		return this.biblioteca.buscarLlibreAccents(titol);
+	}
+	
+	/**
+	 * Funció que busca el llibre més similar a la comparació donada.
+	 * @param titol
+	 * @return
+	 */
+	public Llibre buscarLlibreSimilitud(String titol) {
+		return this.biblioteca.buscarLlibreSimilitud(titol);
 	}
 	
 	// Mètodes d'interacció amb usuaris
@@ -127,11 +140,12 @@ public class GestorBiblioteca {
 	 * @param nom
 	 * @param llibresPrestats
 	 */
-	public void crearUsuari(String nom, ArrayList<Llibre> llibresPrestats) {
-		this.usuaris.add(new Usuari(nom, llibresPrestats));
+	public void crearUsuari(String nom) {
+		this.usuaris.add(new Usuari(nom));
 		System.out.println("S'ha afegit un nou usuari.");
 	}
 	
 }
+
 
 
