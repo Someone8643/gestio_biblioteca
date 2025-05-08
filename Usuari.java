@@ -1,35 +1,62 @@
-import java.util.ArrayList;
+public class Llibre {
 
-public class Usuari {
+	// Propieades
 
-	//propietats
-	private String nom;
-	private ArrayList<Llibre> llibresPrestats;
+	private String titol;
+	private String autor;
+	private boolean prestat;
 
-	
-	//constructor
-	public Usuari(String nom) {
-		this.nom = nom;
-		this.llibresPrestats = new ArrayList<>();
+	// Constructores
+
+	public Llibre(String titol, String autor, boolean prestat){
+
+		this.titol = titol;
+		this.autor = autor;
+		this.prestat = false;
 	}
 
-	
-	//metodes
 
-	
+	// getters y setters
+
+	public String getTitol() {
+		return titol;
+	}
+	public String getAutor() {
+		return autor;
+	}
+	public boolean isPrestat() {
+		return prestat;
+	}
+
+	// Métodos
+
+	public void prestar() {
+		if (prestat == false) {
+			prestat = true;
+		} else {
+			System.out.println("El llibre ja està prestat.");
+		}
+	}
+
+	public void retornar() {
+		if (prestat == true) {
+			prestat = false;
+		} else {
+			System.out.println("El llibre ja està retornat.");
+		}
+	}
+
 	@Override
 	public String toString() {
-		return (nom + ": libros por devolver: " + llibresPrestats);
+		return "Títol: " + titol + ", Autor: " + autor + (prestat ? " En préstec" : " Disponible");
 	}
-	
-	//metodo de añadir libro, que debe tomar los libros de la libreria que hay y devolverlo o tomarlo
-	public void afegirLlibre(Llibre llibre) { llibresPrestats.add(llibre);}
 
-	public void retornarLlibre(Llibre llibre) { llibresPrestats.remove(llibre);}
-	
-	//settars y getters
-	public String getNom() { return nom; }
-	
+
+
+
+
+}
+
 	public ArrayList<Llibre> getLlibresPrestats() { return llibresPrestats; }
 
 
