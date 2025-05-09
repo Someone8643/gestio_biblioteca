@@ -5,6 +5,8 @@ public class Usuari {
 	//propietats
 	private String nom;
 	private ArrayList<Llibre> llibresPrestats;
+	
+	
 
 
 	//constructor
@@ -12,12 +14,18 @@ public class Usuari {
 		this.nom = nom;
 		this.llibresPrestats = new ArrayList<>();
 	}
+	
+	public Usuari(String nom, ArrayList<Llibre> llibresPrestats) {
+		this.nom = nom;
+		this.llibresPrestats = new ArrayList<>();
+		
+	}
 
 
 	//metodes
-
-	//añadir, modificar y eliminar usuarios
-
+	
+	
+	
 
 
 	@Override
@@ -25,8 +33,11 @@ public class Usuari {
 		return (nom + ": libros por devolver: " + llibresPrestats);
 	}
 
-	//metodo de añadir libro, que debe tomar los libros de la libreria que hay y devolverlo o tomarlo
-	//TOMAR UN LIBRO PRESTADO
+	
+	/**
+	 * metode per agafar un llibre prestat
+	 * @param afegir llibre
+	 */
 	public void afegirLlibre(Llibre llibre) {
 		llibresPrestats.add(llibre);
 		
@@ -37,8 +48,14 @@ public class Usuari {
 
 	}
 
-	//settars y getters
+	//setters y getters
 	public String getNom() { return nom; }
+	
+	
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
 	public ArrayList<Llibre> getLlibresPrestats() { return llibresPrestats; }
 
