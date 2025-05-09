@@ -55,6 +55,7 @@ public class Main {
                         System.out.println("3. Eliminar llibre.");
                         System.out.print("Introdueix un número d'opció (-1 per tornar enrere): ");
                         opcio = entrada.nextInt();
+                        entrada.nextLine();
 
                         // Posar codi (cridar funcions per exemple) de cada opció
                         switch (opcio) {
@@ -68,7 +69,7 @@ public class Main {
                                 System.out.println("Autor:");
                                 String autor = entrada.nextLine();
 
-                                Llibre llibreAfegir = new Llibre(titol, autor, false);
+                                Llibre llibreAfegir = new Llibre(titol, autor);
 
                                 //gestor.afegirLlibre(llibreAfegir);
                             }
@@ -88,7 +89,7 @@ public class Main {
                                 System.out.println("Autor:");
                                 String autor = entrada.nextLine();
 
-                                Llibre llibreAfegir = new Llibre(titol, autor, false);
+                                Llibre llibreAfegir = new Llibre(titol, autor);
 
                                 //gestor.afegirLlibre(llibreAfegir);
                             }
