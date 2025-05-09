@@ -41,6 +41,7 @@ public class Main {
             System.out.println("2. Gestions d'usuaris.");
             System.out.print("Introdueix un número d'opció (-1 per sortir): ");
             opcio = entrada.nextInt();
+            entrada.nextLine();
 
             // Posar codi (cridar funcions per exemple) de cada opció
             switch (opcio) {
