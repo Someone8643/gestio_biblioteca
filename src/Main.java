@@ -13,7 +13,6 @@ public class Main {
 		llibres.add(llibre2);
 		Biblioteca biblioteca = new Biblioteca(llibres);
 		GestorBiblioteca gestor = new GestorBiblioteca(biblioteca);
-		
 
 		biblioteca.llistarLlibres();
 		
@@ -29,8 +28,19 @@ public class Main {
 		
 		gestor.crearUsuari("Samuel");
 		
+		gestor.crearUsuari("Sara");
+		
 		gestor.buscarUsuari("Samuel");
 		
+		gestor.buscarUsuari("Sara");
+		
+		gestor.llistarUsuaris();
+		
+		gestor.prestarLlibre("El", "Sara");
+		
+		gestor.prestarLlibre("El", "Sara");
+		
+		gestor.prestarLlibre("El Amanecer Blanco", "Sara");
 		
 		gestor.llistarUsuaris();
 	}

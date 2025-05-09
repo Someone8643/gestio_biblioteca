@@ -37,17 +37,31 @@ public class GestorBiblioteca {
 	 * @param usuari
 	 * @param llibre
 	 */
-	public void prestarLlibre(Usuari usuari, Llibre llibre) {
+	public void prestarLlibre(Llibre llibre, Usuari usuari) {
 		if (!(llibre.isPrestat())) {
-			llibre.prestar();
+			llibre.prestar(usuari);
 			Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
 			prestecs.add(prestec);
-			usuari.afegirLlibre(llibre);
 			System.out.println(usuari.getNom() + " ha agafat el llibre: " + llibre.getTitol());
 		} else {
 			System.out.println("Aquest llibre ja està prestat.");
 		}
 
+	}
+	
+	public void prestarLlibre(String nomLlibre, String nomUsuari) {
+		Llibre llibre = this.buscarLlibreAccents(nomLlibre);
+		Usuari usuari = this.buscarUsuari(nomUsuari);
+		if (llibre != null && !(llibre.isPrestat()) && usuari != null) {
+			llibre.prestar(usuari);
+			Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
+			prestecs.add(prestec);
+			System.out.println(usuari.getNom() + " ha agafat el llibre: " + llibre.getTitol());
+			
+		} else {
+			System.out.println("No s'han trobat alguna de les dades o ja està prestat.");
+		}
+		
 	}
 
 	/**
@@ -167,13 +181,13 @@ public class GestorBiblioteca {
 		}
 	}
 
-
 	/**
 	 * Funció que mostra a tots els usuaris.
 	 */
 	public void llistarUsuaris() {
 		
 		// Recorreix la matriu i genera un llistat que mostra tots els usuaris.
+		System.out.println("Llistat de tots els usuaris registrats:");
 		for (int i = 0; i < usuaris.size(); i++) {
 			Usuari usuari = usuaris.get(i);
 			System.out.println((i + 1) + " | " + usuari.getNom() + " " + usuari.getLlibresPrestats());
@@ -193,12 +207,13 @@ public class GestorBiblioteca {
 		// Recorreix l'array i si el nom equival al donat en la variable ho mostra.
 	    for (Usuari usuari : usuaris) {
 	        if (usuari.getNom().equalsIgnoreCase(nom)) {
-	            System.out.println(usuari);
+	            return usuari;
 	            
 	        }
 	    }
 	    // Si no troba res retorna un missatge.
 	    System.out.println("Usuari no trobat.");
+	    return null;
 	}
 
 

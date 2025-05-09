@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Usuari {
 
-	//propietats
+	// Propietats
 	private String nom;
 	private ArrayList<Llibre> llibresPrestats;
 	
 	
 
 
-	//constructor
+	// Constructors
 	public Usuari(String nom) {
 		this.nom = nom;
 		this.llibresPrestats = new ArrayList<>();
@@ -21,13 +21,14 @@ public class Usuari {
 		
 	}
 
-
-	//metodes
+	// Getters i Setters
 	
-	
-	
+	public ArrayList<Llibre> getLlibresPrestats() { 
+		return llibresPrestats; 
+	}
 
-
+	// Mètodes
+	
 	@Override
 	public String toString() {
 		return (nom + ": libros por devolver: " + llibresPrestats);
@@ -57,7 +58,7 @@ public class Usuari {
 		this.nom = nom;
 	}
 
-	public ArrayList<Llibre> getLlibresPrestats() { return llibresPrestats; }
+	
 
 
 }

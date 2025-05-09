@@ -71,7 +71,6 @@ public class Biblioteca  {
 	public Llibre buscarLlibreAccents(String titol) {
 		for (Llibre llibre : llibres) {
 			if (llibre.getTitol().equalsIgnoreCase(titol)) {
-				System.out.println("S'ha trobat un llibre.");
 				return llibre;
 			}
 		}
