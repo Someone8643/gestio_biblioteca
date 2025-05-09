@@ -5,31 +5,58 @@ public class Usuari {
 	//propietats
 	private String nom;
 	private ArrayList<Llibre> llibresPrestats;
-
 	
+	
+
+
 	//constructor
 	public Usuari(String nom) {
 		this.nom = nom;
-		this.llibresPrestats = new ArrayList();
+		this.llibresPrestats = new ArrayList<>();
+	}
+	
+	public Usuari(String nom, ArrayList<Llibre> llibresPrestats) {
+		this.nom = nom;
+		this.llibresPrestats = new ArrayList<>();
+		
 	}
 
-	
-	//metodes
 
+	//metodes
 	
+	
+	
+
+
 	@Override
 	public String toString() {
 		return (nom + ": libros por devolver: " + llibresPrestats);
 	}
-	
-	//metodo de añadir libro, que debe tomar los libros de la libreria que hay y devolverlo o tomarlo
-	public void afegirLlibre(Llibre llibre) { llibresPrestats.add(llibre);}
 
-	public void retornarLlibre(Llibre llibre) { llibresPrestats.remove(llibre);}
 	
-	//settars y getters
+	/**
+	 * metode per agafar un llibre prestat
+	 * @param afegir llibre
+	 */
+	public void afegirLlibre(Llibre llibre) {
+		llibresPrestats.add(llibre);
+		
+	}
+
+	public void retornarLlibre(Llibre llibre) { 
+		llibresPrestats.remove(llibre);
+
+	}
+
+	//setters y getters
 	public String getNom() { return nom; }
 	
+	
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 	public ArrayList<Llibre> getLlibresPrestats() { return llibresPrestats; }
 
 

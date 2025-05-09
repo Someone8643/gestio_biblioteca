@@ -11,7 +11,7 @@ public class Llibre {
     	
     }
     
-    public Llibre(String titol, String autor, boolean prestat){
+    public Llibre(String titol, String autor){
         this.titol = titol;
         this.autor = autor;
         this.prestat = false;
