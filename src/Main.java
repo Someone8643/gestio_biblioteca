@@ -32,20 +32,24 @@ public class Main {
 
         System.out.println("Benvingut al sistema!");
 
-        int opcio = 0;
-        while (opcio != -1) {
+        // Menú general
+        int opcioMenuGeneral = 0;
+        while (opcioMenuGeneral != -1) {
 
             // Es mostra un menú, editar segons les necessitats
             System.out.println("Opcions:");
             System.out.println("1. Gestions de llibres.");
             System.out.println("2. Gestions d'usuaris.");
             System.out.print("Introdueix un número d'opció (-1 per sortir): ");
-            opcio = entrada.nextInt();
+            opcioMenuGeneral = entrada.nextInt();
             entrada.nextLine();
 
-            // Posar codi (cridar funcions per exemple) de cada opció
-            switch (opcio) {
+            switch (opcioMenuGeneral) {
+
+                // // Op 1
                 case 1: {
+
+                    int opcio = 0;
 
                     while (opcio != -1) {
 
@@ -106,12 +110,18 @@ public class Main {
                                 System.out.println("Tornant al menú general...");
                             }
 
-                            default:
+                            default: {
                                 System.out.println("Opció incorrecta!");
+                            }
                         }
                     }
                 }
+
+                // // Op 2
                 case 2: {
+
+                    int opcio = 0;
+
                     while (opcio != -1) {
 
                         // Es mostra un menú, editar segons les necessitats
@@ -123,6 +133,7 @@ public class Main {
                         System.out.println("5. Cercar usuari.");
                         System.out.print("Introdueix un número d'opció (-1 per tornar enrere): ");
                         opcio = entrada.nextInt();
+                        entrada.nextLine();
 
                         // Posar codi (cridar funcions per exemple) de cada opció
                         switch (opcio) {
@@ -179,8 +190,9 @@ public class Main {
                                 System.out.println("Tornant al menú general...");
                             }
 
-                            default:
+                            default: {
                                 System.out.println("Opció incorrecta!");
+                            }
                         }
                     }
                 }
