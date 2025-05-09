@@ -68,7 +68,7 @@ public class Main {
                                 System.out.println("Autor:");
                                 String autor = entrada.nextLine();
 
-                                Llibre llibreAfegir = new Llibre(titol, autor, false);
+                                Llibre llibreAfegir = new Llibre(titol, autor);
 
                                 //gestor.afegirLlibre(llibreAfegir);
                             }
@@ -88,7 +88,7 @@ public class Main {
                                 System.out.println("Autor:");
                                 String autor = entrada.nextLine();
 
-                                Llibre llibreAfegir = new Llibre(titol, autor, false);
+                                Llibre llibreAfegir = new Llibre(titol, autor);
 
                                 //gestor.afegirLlibre(llibreAfegir);
                             }
