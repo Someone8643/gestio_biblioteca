@@ -36,7 +36,7 @@ public class Usuari {
 
 	
 	/**
-	 * metode per agafar un llibre prestat
+	 * Mètode per agafar un llibre prestat.
 	 * @param afegir llibre
 	 */
 	public void afegirLlibre(Llibre llibre) {
@@ -44,12 +44,16 @@ public class Usuari {
 		
 	}
 
+	/**
+	 * Funció que retorna un llibre.
+	 * @param llibre
+	 */
 	public void retornarLlibre(Llibre llibre) { 
 		llibresPrestats.remove(llibre);
 
 	}
 
-	//setters y getters
+	// Setters i Getters
 	public String getNom() { return nom; }
 	
 	

@@ -49,6 +49,11 @@ public class GestorBiblioteca {
 
 	}
 	
+	/**
+	 * Funció que genera un prèstec i s'ho dona a l'usuari.
+	 * @param nomLlibre
+	 * @param nomUsuari
+	 */
 	public void prestarLlibre(String nomLlibre, String nomUsuari) {
 		Llibre llibre = this.buscarLlibreAccents(nomLlibre);
 		Usuari usuari = this.buscarUsuari(nomUsuari);
@@ -194,8 +199,6 @@ public class GestorBiblioteca {
 			
 		}
 	}
-	
-	
 	
 	/**
 	 * Funció que busca un usuari a partir del seu nom i el retorna.
