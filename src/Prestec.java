@@ -27,6 +27,9 @@ public class Prestec {
     // // Mètodes
 
     // Mètode per retornar el llibre del préstec (amb posar una data de retorn, el llibre està retornat)
+    /**
+     * Funció que retorna un llibre.
+     */
     public void retornarLlibre() {
 
         dataRetorn = LocalDate.now();

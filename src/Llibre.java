@@ -2,64 +2,70 @@ package src;
 
 public class Llibre {
 
-    // Propieades
+	// Propietats
 
-    private String titol;
-    private String autor;
-    private boolean prestat;
+	private String titol;
+	private String autor;
+	private boolean prestat;
 
-    // Constructores
+	// Constructors
+	public Llibre() {
 
-    public Llibre(String titol, String autor, boolean prestat){
+	}
 
-        this.titol = titol;
-        this.autor = autor;
-        this.prestat = false;
-    }
+	public Llibre(String titol, String autor){
+		this.titol = titol;
+		this.autor = autor;
+		this.prestat = false;
+	}
 
 
-    // getters y setters
+	// Getters i Setters
 
-    public String getTitol() {
-        return titol;
-    }
-    public String getAutor() {
-        return autor;
-    }
-    public boolean isPrestat() {
-        return prestat;
-    }
+	public String getTitol() {
+		return titol;
+	}
+	public String getAutor() {
+		return autor;
+	}
+	public boolean isPrestat() {
+		return prestat;
+	}
 
-    // Métodos
+	// Mètodes
 
-    public void prestar(){
+	/**
+	 * Funció que genera un prèstec a un usuari.
+	 */
+	public void prestar(Usuari usuari){
+		if (!prestat) {
+			this.prestat = true;
+			usuari.afegirLlibre(this);
+			System.out.println();
 
-        this.prestat = true;
+		} else {
+			System.out.println("El llibre ja està prestat.");
+		}
+	}
 
-        if (!prestat) {
-            System.out.println("El llibre no s'ha prestat.");
-        } else {
-            System.out.println("El llibre ja està prestat.");
-        }
-    }
-    public void retornar() {
-        if (prestat == true) {
-            prestat = false;
-        } else {
-            System.out.println("El llibre ja està retornat.");
-        }
-    }
+	public void retornar() {
+		if (prestat == true) {
+			prestat = false;
+		} else {
+			System.out.println("El llibre ja està retornat.");
+		}
+	}
 
-    public String toString() {
+	public String toString() {
 
-        String llibrePrestar="";
-        if(!prestat){
-            llibrePrestar = "El llibre no està prestat";
-        } else {
-            llibrePrestar = "El llibre està prestat";
-        }
+		String llibrePrestar="";
+		if(!prestat){
+			llibrePrestar = "El llibre no està prestat";
+		} else {
+			llibrePrestar = "El llibre està prestat";
+		}
 
-        return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + llibrePrestar;
-    }
+		return "Títol: " + titol + ", Autor: " + autor + ", Prestat: " + llibrePrestar + ".";
+	}
 
 }
