@@ -1,0 +1,222 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class GestorBiblioteca {
+	// Propietats
+	private ArrayList<Prestec> prestecs = new ArrayList();
+	private Biblioteca biblioteca;
+	private ArrayList<Usuari> usuaris;
+
+	// Constructors
+	public GestorBiblioteca(Biblioteca biblioteca) {
+		this.biblioteca = biblioteca;
+	}
+
+	public GestorBiblioteca(ArrayList<Prestec> prestecs , Biblioteca biblioteca, ArrayList<Usuari> usuaris) {
+		this.prestecs = prestecs;
+		this.biblioteca = biblioteca;
+		this.usuaris = usuaris;
+	}
+
+	// Getters i Setters
+	public ArrayList<Prestec> getPrestecs() {
+		return prestecs;
+	}
+
+	public Biblioteca getBiblioteca() {
+		return biblioteca;
+	}
+
+	public ArrayList<Usuari> getUsuaris() {
+		return usuaris;
+	}
+
+	// Mètodes
+	/**
+	 * Funció que genera un prèstec i s'ho dona a l'usuari.
+	 * @param usuari
+	 * @param llibre
+	 */
+	public void prestarLlibre(Usuari usuari, Llibre llibre) {
+		if (!(llibre.isPrestat())) {
+			llibre.prestar();
+			Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
+			prestecs.add(prestec);
+			usuari.afegirLlibre(llibre);
+			System.out.println(usuari.getNom() + " ha agafat el llibre: " + llibre.getTitol());
+		} else {
+			System.out.println("Aquest llibre ja està prestat.");
+		}
+
+	}
+
+	/**
+	 * Funció que calcula l'estoc actual.
+	 * @param biblioteca
+	 * @return
+	 */
+	public int donarEstoc() {
+		int estoc = 0;
+		for (Llibre llibre : biblioteca.getLlibres()) {
+			if (!(llibre.isPrestat())) {
+				estoc++;
+			}
+		}
+		return estoc;
+	}
+
+	// Mètodes d'interacció amb biblioteques
+	/**
+	 * Funció que permet eliminar un llibre pel seu nom.
+	 * @param nom
+	 */
+	public void eliminarLlibreNom(String nom) {
+		for (Llibre llibre : biblioteca.getLlibres()) {
+			if (llibre.getTitol().equalsIgnoreCase(nom)) {
+				biblioteca.getLlibres().remove(llibre);
+			}
+		}
+	}
+
+	/**
+	 * Funció que permet la creació d'un nou llibre.
+	 * @param titol
+	 * @param autor
+	 * @param prestat
+	 */
+	public void crearLlibre(String titol, String autor, boolean prestat) {
+		this.biblioteca.getLlibres().add(new Llibre(titol, autor, prestat));
+		System.out.println("S'ha afegit un nou llibre.");
+	}
+
+	/**
+	 * Funció que afegeix un llibre existent.
+	 * @param llibre
+	 */
+	public void afegirLlibre(Llibre llibre) {
+		this.biblioteca.getLlibres().add(llibre);
+	}
+
+	/**
+	 * Funció que mostra els llibres de la biblioteca.
+	 */
+	public void mostrarBiblioteca() {
+		this.biblioteca.llistarLlibres();
+	}
+
+	/**
+	 * Funció que busca un llibre pel seu títol.
+	 * @param titol
+	 * @return
+	 */
+	public Llibre buscarLlibreAccents(String titol) {
+		return this.biblioteca.buscarLlibreAccents(titol);
+	}
+
+	/**
+	 * Funció que busca el llibre més similar a la comparació donada.
+	 * @param titol
+	 * @return
+	 */
+	public Llibre buscarLlibreSimilitud(String titol) {
+		return this.biblioteca.buscarLlibreSimilitud(titol);
+	}
+
+	// Mètodes d'interacció amb usuaris
+	/**
+	 * Funció que permet eliminar un usuari pel seu nom.
+	 * @param nom
+	 */
+	public void eliminarUsuariNom(String nom) {
+		for (Usuari usuari : usuaris) {
+			if (usuari.getNom().equalsIgnoreCase(nom)) {
+				usuaris.remove(usuari);
+			}
+		}
+	}
+
+	/**
+	 * Funció que permet la creació d'un nou usuari.
+	 * @param nom
+	 * @param llibresPrestats
+	 */
+	public void crearUsuari(String nom) {
+		this.usuaris.add(new Usuari(nom));
+		System.out.println("S'ha afegit un nou usuari.");
+	}
+
+
+	/**
+	 * modifica el nombre de los usuarios
+	 * @param nom 
+	 * @param nouNom
+	 */
+	public void modificarUsuari(String nom, String nouNom) {
+		boolean trobat = false;
+		for (Usuari usuari : usuaris) {
+			if (usuari.getNom().equalsIgnoreCase(nom)) {
+				usuari.setNom(nouNom);  // Aquí es donde se modifica el nombre
+				trobat = true;
+				System.out.println("Usuari modificat correctament");
+
+			}
+		}
+		//aviso de que no existe el susario
+		if (!trobat) {
+			System.out.println("Usuari no trobat");
+		}
+	}
+
+
+	/**
+	 * Lista todos los usuarios en formato: usuario1(nombre) - usuario2(nombre) - ...
+	 */
+	public void llistarUsuaris() {
+
+		String resultat = new String();
+		
+		//recorre todos los usuarios 1 a 1, y los va añadiendo a un string resultante que 
+		// muestra al final, si es el primer dato no le añade el " - "
+		for (int i = 0; i < usuaris.size(); i++) {
+			
+			Usuari usuari = usuaris.get(i);
+			
+			resultat = resultat + (usuari.getNom());
+			
+		
+			if (i < usuaris.size() - 1) {
+				
+				resultat = resultat + (" - ");
+				
+			}
+		}
+		System.out.println(resultat);
+	}
+	
+	
+	
+	/**
+	 * Busca un usuario por nombre y devuelve su toString()
+	 * @param 
+	 * @return 
+	 */
+	public String buscarUsuari(String nomACercar) {
+		
+		//recorre todos los usuarios, cuando encuentre alguno que coincida devuelve el tostring del usuario
+	    for (Usuari usuari : usuaris) {
+	        if (usuari.getNom().equalsIgnoreCase(nomACercar)) {
+	            return usuari.toString();
+	        }
+	    }
+	    return "Usuari no trobat.";
+	}
+
+
+}
+
+
+
+
+
+
+
