@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //Biblioteca biblioteca = new Biblioteca();
+        Biblioteca biblioteca = new Biblioteca();
 
         // Llibres
         //Llibre llibre1 = new Llibre("1984", "George Orwell");
@@ -18,7 +18,7 @@ public class Main {
         //Usuari usuari = new Usuari("Carla");
 
         // Crear el gestor
-        //GestorBiblioteca gestor = new GestorBiblioteca();
+        GestorBiblioteca gestor = new GestorBiblioteca(biblioteca);
 
         // Fer préstecs
         //gestor.prestarLlibre(usuari, llibre1);
@@ -43,10 +43,11 @@ public class Main {
             System.out.print("Introdueix un número d'opció (-1 per sortir): ");
             opcioMenuGeneral = entrada.nextInt();
             entrada.nextLine();
+            System.out.println();
 
             switch (opcioMenuGeneral) {
 
-                // // Op 1
+                // // OP 1
                 case 1: {
 
                     int opcio = 0;
@@ -61,6 +62,7 @@ public class Main {
                         System.out.print("Introdueix un número d'opció (-1 per tornar enrere): ");
                         opcio = entrada.nextInt();
                         entrada.nextLine();
+                        System.out.println();
 
                         // Posar codi (cridar funcions per exemple) de cada opció
                         switch (opcio) {
@@ -76,7 +78,11 @@ public class Main {
 
                                 Llibre llibreAfegir = new Llibre(titol, autor);
 
-                                //gestor.afegirLlibre(llibreAfegir);
+                                gestor.afegirLlibre(llibreAfegir);
+
+                                System.out.println();
+                                break;
+
                             }
                             case 2: {
 
@@ -84,7 +90,7 @@ public class Main {
                                 String titolABuscar = entrada.nextLine();
 
                                 // TODO
-                                //Llibre llibreAModificar = gestor.buscarLlibreAccents(titolABuscar);
+                                Llibre llibreAModificar = gestor.buscarLlibreAccents(titolABuscar);
 
                                 System.out.println("Introdueix les dades que tindrà el llibre:");
 
@@ -96,28 +102,40 @@ public class Main {
 
                                 Llibre llibreAfegir = new Llibre(titol, autor);
 
-                                //gestor.afegirLlibre(llibreAfegir);
+                                gestor.afegirLlibre(llibreAfegir);
+
+                                System.out.println();
+                                break;
+
                             }
                             case 3: {
 
                                 System.out.println("Eliminar llibre:");
 
                                 System.out.println("Introdueix el títol del llibre a ser eliminat:");
-                                //gestor.eliminarLlibreNom(entrada.nextLine());
+                                gestor.eliminarLlibreNom(entrada.nextLine());
+
+
+                                System.out.println();
+                                break;
+
                             }
                             case -1: {
-
                                 System.out.println("Tornant al menú general...");
+                                System.out.println();
+                                break;
                             }
-
                             default: {
                                 System.out.println("Opció incorrecta!");
+                                System.out.println();
+                                break;
                             }
                         }
                     }
-                }
 
-                // // Op 2
+                    break;
+                }
+                // // OP 2
                 case 2: {
 
                     int opcio = 0;
@@ -134,6 +152,7 @@ public class Main {
                         System.out.print("Introdueix un número d'opció (-1 per tornar enrere): ");
                         opcio = entrada.nextInt();
                         entrada.nextLine();
+                        System.out.println();
 
                         // Posar codi (cridar funcions per exemple) de cada opció
                         switch (opcio) {
@@ -147,6 +166,8 @@ public class Main {
                                 System.out.println("b:");
                                 String b = entrada.nextLine();
 
+                                System.out.println();
+                                break;
 
                             }
                             case 2: {
@@ -162,6 +183,9 @@ public class Main {
                                 System.out.println("b:");
                                 String b = entrada.nextLine();
 
+                                System.out.println();
+                                break;
+
                             }
                             case 3: {
 
@@ -170,11 +194,17 @@ public class Main {
                                 System.out.println("Introdueix el nom del usuari a ser eliminat:");
                                 String nomUsuari = entrada.nextLine();
 
+                                System.out.println();
+                                break;
+
                             }
                             case 4: {
 
                                 System.out.println("Llistar usuaris:");
+                                gestor.llistarUsuaris();
 
+                                System.out.println();
+                                break;
 
                             }
                             case 5: {
@@ -184,26 +214,37 @@ public class Main {
                                 System.out.println("Introdueix el nom del usuari a ser cercat:");
                                 String usuariACercar = entrada.nextLine();
 
+                                System.out.println();
+                                break;
+
                             }
                             case -1: {
-
                                 System.out.println("Tornant al menú general...");
+                                System.out.println();
+                                break;
                             }
-
                             default: {
                                 System.out.println("Opció incorrecta!");
+                                System.out.println();
+                                break;
                             }
                         }
                     }
+
+                    break;
                 }
                 case -1: {
-
                     System.out.println("Sortint del sistema...");
+                    System.out.println();
+                    break;
                 }
-
-                default:
+                default: {
                     System.out.println("Opció incorrecta!");
+                    System.out.println();
+                    break;
+                }
             }
         } // Fí bucle
     }
 }
+

@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class GestorBiblioteca {
-	// Propietats
+
+	// // Propietats
 	private ArrayList<Prestec> prestecs = new ArrayList();
 	private Biblioteca biblioteca;
 	private ArrayList<Usuari> usuaris = new ArrayList();
 
-	// Constructors
+	// // Constructors
 	public GestorBiblioteca(Biblioteca biblioteca) {
 		this.biblioteca = biblioteca;
 	}
@@ -20,7 +21,7 @@ public class GestorBiblioteca {
 		this.usuaris = usuaris;
 	}
 
-	// Getters i Setters
+	// // Getters i Setters
 	public ArrayList<Prestec> getPrestecs() {
 		return prestecs;
 	}
@@ -33,9 +34,9 @@ public class GestorBiblioteca {
 		return usuaris;
 	}
 
-	// Mètodes
+	// // Mètodes
 	/**
-	 * Funció que genera un prèstec i s'ho dona a l'usuari.
+	 * Funció que genera un préstec i s'ho dona a l'usuari.
 	 * @param usuari
 	 * @param llibre
 	 */
@@ -73,8 +74,7 @@ public class GestorBiblioteca {
 
 	/**
 	 * Funció que calcula l'estoc actual.
-	 * @param biblioteca
-	 * @return
+	 * @return El total de llibres de la biblioteca que no estan prestats
 	 */
 	public int donarEstoc() {
 		int estoc = 0;
@@ -86,7 +86,9 @@ public class GestorBiblioteca {
 		return estoc;
 	}
 
-	// Mètodes d'interacció amb biblioteques
+	// ---------------------------------------------------------
+	// // // // Mètodes d'interacció amb els llibres // // // //
+	// ---------------------------------------------------------
 	/**
 	 * Funció que permet eliminar un llibre pel seu nom.
 	 * @param nom
@@ -103,7 +105,6 @@ public class GestorBiblioteca {
 	 * Funció que permet la creació d'un nou llibre.
 	 * @param titol
 	 * @param autor
-	 * @param prestat
 	 */
 	public void crearLlibre(String titol, String autor) {
 		this.biblioteca.getLlibres().add(new Llibre(titol, autor));
@@ -143,7 +144,11 @@ public class GestorBiblioteca {
 		return this.biblioteca.buscarLlibreSimilitud(titol);
 	}
 
-	// Mètodes d'interacció amb usuaris
+
+	// -----------------------------------------------------
+	// // // // Mètodes d'interacció amb usuaris // // // //
+	// -----------------------------------------------------
+
 	/**
 	 * Funció que permet eliminar un usuari pel seu nom.
 	 * @param nom
@@ -159,7 +164,6 @@ public class GestorBiblioteca {
 	/**
 	 * Funció que permet la creació d'un nou usuari.
 	 * @param nom
-	 * @param llibresPrestats
 	 */
 	public void crearUsuari(String nom) {
 		this.usuaris.add(new Usuari(nom));
@@ -168,7 +172,7 @@ public class GestorBiblioteca {
 
 
 	/**
-	 * Funció que modifica l'usuari seleccionat per el nom.
+	 * Funció que modifica l'usuari seleccionat pel nom.
 	 * @param nom 
 	 * @param nouNom
 	 */
@@ -216,8 +220,7 @@ public class GestorBiblioteca {
 	            
 	        }
 	    }
-	    // Si no troba res retorna un missatge.
-	    System.out.println("Usuari no trobat.");
+	    // Si no troba res, retorna null.
 	    return null;
 	}
 
