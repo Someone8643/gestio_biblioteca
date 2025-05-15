@@ -90,6 +90,7 @@ public class Main {
                                 String titolABuscar = entrada.nextLine();
 
                                 // TODO
+                                System.out.println("FALTA FUNCIÓ");
                                 Llibre llibreAModificar = gestor.buscarLlibreAccents(titolABuscar);
 
                                 System.out.println("Introdueix les dades que tindrà el llibre:");
@@ -114,7 +115,6 @@ public class Main {
 
                                 System.out.println("Introdueix el títol del llibre a ser eliminat:");
                                 gestor.eliminarLlibreNom(entrada.nextLine());
-
 
                                 System.out.println();
                                 break;
@@ -160,11 +160,10 @@ public class Main {
 
                                 System.out.println("Introdueix les dades per crear un nou usuari:");
 
-                                System.out.println("a:");
-                                String a = entrada.nextLine();
+                                System.out.println("Nom:");
+                                String nom = entrada.nextLine();
 
-                                System.out.println("b:");
-                                String b = entrada.nextLine();
+                                gestor.crearUsuari(nom);
 
                                 System.out.println();
                                 break;
@@ -177,11 +176,10 @@ public class Main {
 
                                 System.out.println("Introdueix les dades que tindrà l'usuari:");
 
-                                System.out.println("a:");
-                                String a = entrada.nextLine();
+                                System.out.println("Nom:");
+                                String nom = entrada.nextLine();
 
-                                System.out.println("b:");
-                                String b = entrada.nextLine();
+                                gestor.modificarUsuari(usuariABuscar, nom);
 
                                 System.out.println();
                                 break;
@@ -193,6 +191,8 @@ public class Main {
 
                                 System.out.println("Introdueix el nom del usuari a ser eliminat:");
                                 String nomUsuari = entrada.nextLine();
+
+                                gestor.eliminarUsuariNom(nomUsuari);
 
                                 System.out.println();
                                 break;
@@ -213,6 +213,8 @@ public class Main {
 
                                 System.out.println("Introdueix el nom del usuari a ser cercat:");
                                 String usuariACercar = entrada.nextLine();
+
+                                System.out.println(gestor.buscarUsuari(usuariACercar));
 
                                 System.out.println();
                                 break;
