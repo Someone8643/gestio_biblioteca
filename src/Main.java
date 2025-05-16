@@ -59,6 +59,10 @@ public class Main {
                         System.out.println("1. Afegir llibre.");
                         System.out.println("2. Modificar llibre.");
                         System.out.println("3. Eliminar llibre.");
+                        System.out.println("4. Mostrar llibre.");
+                        System.out.println("5. Llistar llibres.");
+                        System.out.println("6. Prestar llibre.");
+                        System.out.println("7. Retornar llibre.");
                         System.out.print("Introdueix un número d'opció (-1 per tornar enrere): ");
                         opcio = entrada.nextInt();
                         entrada.nextLine();
@@ -89,10 +93,6 @@ public class Main {
                                 System.out.println("Introdueix el títol del llibre per editar:");
                                 String titolABuscar = entrada.nextLine();
 
-                                // TODO
-                                System.out.println("FALTA FUNCIÓ");
-                                Llibre llibreAModificar = gestor.buscarLlibreAccents(titolABuscar);
-
                                 System.out.println("Introdueix les dades que tindrà el llibre:");
 
                                 System.out.println("Títol:");
@@ -103,7 +103,7 @@ public class Main {
 
                                 Llibre llibreAfegir = new Llibre(titol, autor);
 
-                                gestor.afegirLlibre(llibreAfegir);
+                                gestor.editarLlibreNom(titolABuscar, titol, autor);
 
                                 System.out.println();
                                 break;
@@ -115,6 +115,52 @@ public class Main {
 
                                 System.out.println("Introdueix el títol del llibre a ser eliminat:");
                                 gestor.eliminarLlibreNom(entrada.nextLine());
+
+                                System.out.println();
+                                break;
+
+                            }
+                            case 4: {
+
+                                System.out.println("Mostrar llibre:");
+
+                                System.out.println("Introdueix el títol del llibre:");
+                                System.out.println(gestor.buscarLlibreAccents(entrada.nextLine()));
+
+                                System.out.println();
+                                break;
+
+                            }
+                            case 5: {
+
+                                System.out.println("Llistar llibres:");
+
+                                gestor.mostrarBiblioteca();
+
+                                System.out.println();
+                                break;
+
+                            }
+                            case 6: {
+
+                                System.out.println("Introdueix el títol del llibre a prestar:");
+                                String llibreABuscar = entrada.nextLine();
+
+                                System.out.println("Introdueix el nom del usuari a qui prestar:");
+                                String usuariABuscar = entrada.nextLine();
+
+                                gestor.prestarLlibre(llibreABuscar, usuariABuscar);
+
+                                System.out.println();
+                                break;
+
+                            }
+                            case 7: {
+
+                                System.out.println("Introdueix el títol del llibre a retornar:");
+                                String llibreABuscar = entrada.nextLine();
+
+                                gestor.buscarLlibreAccents(llibreABuscar).retornar();
 
                                 System.out.println();
                                 break;

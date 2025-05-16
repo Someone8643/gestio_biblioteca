@@ -102,6 +102,20 @@ public class GestorBiblioteca {
 	}
 
 	/**
+	 * Funció que permet modifica un llibre pel seu nom.
+	 * @param nom
+	 */
+	public void editarLlibreNom(String nom, String titolNou, String autorNou) {
+		for (Llibre llibre : biblioteca.getLlibres()) {
+			if (llibre.getTitol().equalsIgnoreCase(nom)) {
+
+				llibre.setTitol(titolNou);
+				llibre.setAutor(autorNou);
+			}
+		}
+	}
+
+	/**
 	 * Funció que permet la creació d'un nou llibre.
 	 * @param titol
 	 * @param autor

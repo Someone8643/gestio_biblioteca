@@ -31,6 +31,12 @@ public class Llibre {
 	public boolean isPrestat() {
 		return prestat;
 	}
+	public void setTitol(String titol) {
+		this.titol = titol;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
 
 	// Mètodes
 
