@@ -14,14 +14,14 @@ public class Main {
         biblioteca.afegirLlibre(llibre1);
         biblioteca.afegirLlibre(llibre2);
 
-        // Usuaris
-        Usuari usuari = new Usuari("Carla");
-
         // Crear el gestor
         GestorBiblioteca gestor = new GestorBiblioteca(biblioteca);
 
+        // Afegir usuari
+        gestor.crearUsuari("Carla");
+
         // Fer préstecs
-        gestor.prestarLlibre(llibre1, usuari);
+        gestor.prestarLlibre(llibre1, gestor.buscarUsuari("Carla"));
 
         /*
          * Bloc de codi per a copiar que mostra un menu i segons el número d'opció es fa un cas o altre.
