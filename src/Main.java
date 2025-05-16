@@ -8,21 +8,20 @@ public class Main {
         Biblioteca biblioteca = new Biblioteca();
 
         // Llibres
-        //Llibre llibre1 = new Llibre("1984", "George Orwell");
-        //Llibre llibre2 = new Llibre("El petit príncep", "Antoine de Saint-Exupéry");
+        Llibre llibre1 = new Llibre("1984", "George Orwell");
+        Llibre llibre2 = new Llibre("El petit príncep", "Antoine de Saint-Exupéry");
 
-        //biblioteca.afegirLlibre(llibre1);
-        //biblioteca.afegirLlibre(llibre2);
+        biblioteca.afegirLlibre(llibre1);
+        biblioteca.afegirLlibre(llibre2);
 
         // Usuaris
-        //Usuari usuari = new Usuari("Carla");
+        Usuari usuari = new Usuari("Carla");
 
         // Crear el gestor
         GestorBiblioteca gestor = new GestorBiblioteca(biblioteca);
 
         // Fer préstecs
-        //gestor.prestarLlibre(usuari, llibre1);
-
+        gestor.prestarLlibre(llibre1, usuari);
 
         /*
          * Bloc de codi per a copiar que mostra un menu i segons el número d'opció es fa un cas o altre.

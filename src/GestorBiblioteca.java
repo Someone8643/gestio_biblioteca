@@ -96,7 +96,11 @@ public class GestorBiblioteca {
 	public void eliminarLlibreNom(String nom) {
 		for (Llibre llibre : biblioteca.getLlibres()) {
 			if (llibre.getTitol().equalsIgnoreCase(nom)) {
-				biblioteca.getLlibres().remove(llibre);
+				if (!llibre.isPrestat()) {
+					biblioteca.getLlibres().remove(llibre);
+				} else {
+					System.out.println("El llibre està prestat!");
+				}
 			}
 		}
 	}
