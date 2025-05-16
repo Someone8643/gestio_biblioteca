@@ -159,7 +159,10 @@ public class Main {
                                 System.out.println("Introdueix el títol del llibre a retornar:");
                                 String llibreABuscar = entrada.nextLine();
 
-                                gestor.buscarLlibreAccents(llibreABuscar).retornar();
+                                System.out.println("Introdueix el nom del usuari que retorna el llibre:");
+                                String usuariABuscar = entrada.nextLine();
+
+                                gestor.buscarLlibreAccents(llibreABuscar).retornar(gestor.buscarUsuari(usuariABuscar));
 
                                 System.out.println();
                                 break;

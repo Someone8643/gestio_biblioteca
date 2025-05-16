@@ -54,10 +54,14 @@ public class Llibre {
 		}
 	}
 
-	public void retornar() {
+	public void retornar(Usuari usuari) {
 		if (prestat == true) {
+
+			usuari.retornarLlibre(this);
 			prestat = false;
+
 		} else {
+
 			System.out.println("El llibre ja està retornat.");
 		}
 	}
